@@ -1,6 +1,9 @@
 const puppeteer = require('puppeteer');
 const bot = async (url) => {
-    const browser = await puppeteer.launch({ headless: true, args: ['--no-sandbox'] });
+    const browser = await puppeteer.launch({
+        headless: true,
+        ignoreDefaultArgs: ['--disable-extensions'],
+    });
     const page = await browser.newPage();
     await page.setRequestInterception(true);
 
